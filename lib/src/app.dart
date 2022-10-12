@@ -1,3 +1,4 @@
+import 'package:bask_app/src/add_partida/add_partida_view.dart';
 import 'package:bask_app/src/login/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -72,9 +73,11 @@ class MyApp extends StatelessWidget {
                     return SettingsView(controller: settingsController);
                   case SampleItemDetailsView.routeName:
                     return const SampleItemDetailsView();
-                  case LoginView.routeName:
+                  // case LoginView.routeName:
+                  case AddPartidaView.routeName:
                   default:
-                    return LoginView();
+                    // return LoginView();
+                    return AddPartidaView();
                 }
               },
             );
