@@ -1,5 +1,7 @@
 import 'package:bask_app/src/add_partida/add_partida_view.dart';
+import 'package:bask_app/src/add_time/add_time_view.dart';
 import 'package:bask_app/src/login/login_view.dart';
+import 'package:bask_app/src/meus_times/meus_times_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
