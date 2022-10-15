@@ -1,8 +1,4 @@
-import 'package:bask_app/src/add_time/add_time_view.dart';
-import 'package:bask_app/src/home/home_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_phosphor_icons/flutter_phosphor_icons.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class BaskBottonBar extends StatefulWidget {
   final PageController controller;
