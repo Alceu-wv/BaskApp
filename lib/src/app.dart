@@ -1,5 +1,6 @@
 import 'package:bask_app/src/add_partida/add_partida_view.dart';
 import 'package:bask_app/src/add_time/add_time_view.dart';
+import 'package:bask_app/src/home/home_page.dart';
 import 'package:bask_app/src/login/login_view.dart';
 import 'package:bask_app/src/meus_times/meus_times_view.dart';
 import 'package:flutter/material.dart';
@@ -71,15 +72,14 @@ class MyApp extends StatelessWidget {
               settings: routeSettings,
               builder: (BuildContext context) {
                 switch (routeSettings.name) {
-                  case SettingsView.routeName:
-                    return SettingsView(controller: settingsController);
-                  case SampleItemDetailsView.routeName:
-                    return const SampleItemDetailsView();
-                  // case LoginView.routeName:
+                  case MeusTimesView.routeName:
+                    return HomePage();
+                  case AddTimeView.routeName:
+                    return AddTimeView();
                   case AddPartidaView.routeName:
-                  default:
-                    // return LoginView();
                     return AddPartidaView();
+                  default:
+                    return LoginView();
                 }
               },
             );

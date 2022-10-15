@@ -111,7 +111,7 @@ class _AddPartidaViewState extends State<AddPartidaView> {
           ),
         ),
       ),
-      bottomNavigationBar: BaskBottonBar(),
+      bottomNavigationBar: BaskBottonBar(PageController()),
     );
   }
 }

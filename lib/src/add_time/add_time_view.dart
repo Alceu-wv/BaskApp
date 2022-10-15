@@ -61,7 +61,6 @@ class _AddTimeViewState extends State<AddTimeView> {
           ],
         ),
       ),
-      bottomNavigationBar: BaskBottonBar(),
     );
   }
 }

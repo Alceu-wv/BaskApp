@@ -1,3 +1,4 @@
+import 'package:bask_app/src/meus_times/meus_times_view.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -74,7 +75,10 @@ class LoginButtons extends StatelessWidget {
           width: MediaQuery.of(context).size.width * 0.6,
           height: MediaQuery.of(context).size.height * 0.04,
           child: ElevatedButton(
-              onPressed: () {}, child: Text("Login com o Google")),
+              onPressed: () {
+                Navigator.of(context).pushNamed(MeusTimesView.routeName);
+              },
+              child: Text("Login com o Google")),
         ),
         SizedBox(
           width: MediaQuery.of(context).size.width * 0.6,

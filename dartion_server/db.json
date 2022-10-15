@@ -1,4 +1,36 @@
 {
+    "teams": [
+        {
+            "id": "1",
+            "name": "Antetopoukos",
+            "badge": "robert@gmail.com"
+        },
+        {
+            "id": "2",
+            "name": "Maesa Pegado",
+            "badge": "robert@gmail.com"
+        }
+    ],
+    "match": [
+        {
+            "id": "0",
+            "teamId": "1",
+            "place": "Maesa",
+            "date": "12/07/1990",
+            "time": "20:00",
+            "max_players": 12,
+            "price": 10
+        },
+        {
+            "id": "0",
+            "teamId": "1",
+            "place": "Maesa",
+            "date": "18/07/1990",
+            "time": "21:00",
+            "max_players": 12,
+            "price": 20
+        }
+    ],
     "users": [
         {
             "id": "0",

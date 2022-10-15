@@ -102,7 +102,6 @@ class MeusTimesView extends StatelessWidget {
           background_layer_card(),
         ]),
       ),
-      bottomNavigationBar: BaskBottonBar(),
     );
   }
 }
