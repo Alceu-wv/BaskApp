@@ -26,6 +26,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    pageController = PageController(initialPage: currentPage);
+
     return Scaffold(
       bottomNavigationBar: BaskBottonBar(pageController),
       body: PageView(
