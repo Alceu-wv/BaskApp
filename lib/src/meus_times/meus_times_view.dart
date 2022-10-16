@@ -1,12 +1,43 @@
-import 'package:bask_app/src/components/my_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../components/my_app_bar.dart';
-import '../components/my_botton_bar.dart';
+import '../repositories/team_repository.dart';
 
-class MeusTimesView extends StatelessWidget {
+class MeusTimesView extends StatefulWidget {
   static const routeName = '/meus_times';
+
+  @override
+  State<MeusTimesView> createState() => _MeusTimesViewState();
+}
+
+class _MeusTimesViewState extends State<MeusTimesView> {
   final String controllerField = "Teste";
+
+  late TeamRepository teams = Provider.of<TeamRepository>(context);
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (mounted) {
+      teams.fetchData();
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    teams = Provider.of<TeamRepository>(context);
+
+    return Scaffold(
+      appBar: BaskAppBar("Meus times"),
+      body: Center(
+        child: Column(children: [
+          background_layer_card(),
+          background_layer_card(),
+        ]),
+      ),
+    );
+  }
 
   Widget text_data() {
     return Text(
@@ -88,19 +119,6 @@ class MeusTimesView extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: BaskAppBar("Meus times"),
-      body: Center(
-        child: Column(children: [
-          background_layer_card(),
-          background_layer_card(),
-        ]),
       ),
     );
   }
