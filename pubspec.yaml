@@ -16,8 +16,9 @@ dependencies:
     sdk: flutter
   flutter_phosphor_icons: ^0.0.1+6
   flutter_svg: ^1.1.5
-  uno: ^1.0.1+5
   url_launcher: ^6.1.6
+  http: ^0.13.5
+  provider: 
 
 dev_dependencies:
   flutter_test:
