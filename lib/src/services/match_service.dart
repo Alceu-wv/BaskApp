@@ -1,12 +1,11 @@
 import 'dart:convert';
-import 'package:bask_app/src/models/time.dart';
+import 'package:bask_app/src/models/partida.dart';
 import 'package:http/http.dart' as http;
 
+class MatchService {
+  var url = 'http://10.0.2.2:3031/matchs';
 
-class TeamService {
-  var url = 'http://10.0.2.2:3031/teams';
-
-  Future<List<Team>> fetchTeams() async {
+  Future<List<Match>> fetchMatchs() async {
     print(url);
 
     final response = await http.get(
@@ -14,11 +13,11 @@ class TeamService {
     );
     print(response.body);
     
-    var json = jsonDecode(response.body);
+    var json = jsonDecode(response.body);   
     final list = json as List;
-    var teams = list.map((e) => Team.fromMap(e)).toList();
+    var matchs = list.map((e) => Match.fromMap(e)).toList();
     
-    return teams;
+    return matchs;
   }
 }
 // class TeamService {

@@ -31,10 +31,13 @@ class _MeusTimesViewState extends State<MeusTimesView> {
     return Scaffold(
       appBar: BaskAppBar("Meus times"),
       body: Center(
-        child: Column(children: [
-          background_layer_card(),
-          background_layer_card(),
-        ]),
+        child: ListView.builder(
+          itemCount: teams.count,
+          itemBuilder: (BuildContext context, int index) {
+            var team = teams.items[index];
+            return background_layer_card(team);
+          },
+        ),
       ),
     );
   }
@@ -91,7 +94,7 @@ class _MeusTimesViewState extends State<MeusTimesView> {
     );
   }
 
-  Widget background_layer_card() {
+  Widget background_layer_card(team) {
     return Padding(
       padding: const EdgeInsets.only(top: 15.0),
       child: Card(
@@ -106,8 +109,8 @@ class _MeusTimesViewState extends State<MeusTimesView> {
               color: const Color(0xff024363),
               width: 311,
               height: 50,
-              child: const Text(
-                "Nome do time",
+              child: Text(
+                team.name,
                 style: TextStyle(fontSize: 20, color: Colors.white),
               ),
             ),

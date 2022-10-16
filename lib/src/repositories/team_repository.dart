@@ -1,35 +1,60 @@
 import 'dart:collection';
 
+import 'package:bask_app/src/models/partida.dart';
 import 'package:bask_app/src/models/time.dart';
+import 'package:bask_app/src/services/match_service.dart';
 import 'package:bask_app/src/services/team_service.dart';
 import 'package:flutter/material.dart';
 
 class TeamRepository with ChangeNotifier {
-  late List<Team> _items = [];
+  late List<Team> _teams = [];
+  late List<Match> _matchs = [];
 
-  UnmodifiableListView<Team> get items => UnmodifiableListView(_items);
+  UnmodifiableListView<Team> get items => UnmodifiableListView(_teams);
 
   fetchData() async {
     print("Trazendo dados do banco TEAMS");
-    _items = await TeamService().fetchTeams();
-    print(_items);
+    _teams = await TeamService().fetchTeams();
+    print(_teams);
+
+    print("Trazendo dados do banco MATCHS");
+    _matchs = await MatchService().fetchMatchs();
+    print(_matchs);
   }
 
-  saveAll(List<Team> teams) {
+  saveTeam(List<Team> teams) {
     for (var team in teams) {
-      if (_items.contains(team)) {
-        _items.add(team);
+      if (_teams.contains(team)) {
+        _teams.add(team);
       }
     }
     notifyListeners();
   }
 
-  remove(Team team) {
-    _items.remove(team);
+  saveMatch(List<Match> matchs) {
+    for (var match in matchs) {
+      if (_matchs.contains(match)) {
+        _matchs.add(match);
+      }
+    }
+    notifyListeners();
+  }
+
+  removeTeam(Team team) {
+    _teams.remove(team);
+    notifyListeners();
+  }
+
+  removeMatch(Match match) {
+    _matchs.remove(match);
     notifyListeners();
   }
 
   int get count {
-    return _items.length;
+    return _teams.length;
+  }
+
+  int get countMatchs {
+    return _matchs.length;
   }
 }
