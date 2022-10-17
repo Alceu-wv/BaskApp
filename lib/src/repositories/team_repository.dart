@@ -8,9 +8,10 @@ import 'package:flutter/material.dart';
 
 class TeamRepository with ChangeNotifier {
   late List<Team> _teams = [];
-  late List<Match> _matchs = [];
+  late List _matchs = [];
 
-  UnmodifiableListView<Team> get items => UnmodifiableListView(_teams);
+  UnmodifiableListView<Team> get teams => UnmodifiableListView(_teams);
+  UnmodifiableListView get matchs => UnmodifiableListView(_matchs);
 
   fetchData() async {
     print("Trazendo dados do banco TEAMS");
@@ -18,24 +19,25 @@ class TeamRepository with ChangeNotifier {
     print(_teams);
 
     print("Trazendo dados do banco MATCHS");
-    _matchs = await MatchService().fetchMatchs();
-    print(_matchs);
-  }
-
-  saveTeam(List<Team> teams) {
-    for (var team in teams) {
-      if (_teams.contains(team)) {
-        _teams.add(team);
-      }
+    var allMatchs = await MatchService().fetchMatchs();
+    var matchGroups = [];
+    for (var i = 0; i < _teams.length; i++) {
+      matchGroups.add(allMatchs.where((value) => value.teamId == _teams[i].id));
     }
-    notifyListeners();
+    _matchs = matchGroups;
+    print("******************  $_matchs");
   }
 
-  saveMatch(List<Match> matchs) {
-    for (var match in matchs) {
-      if (_matchs.contains(match)) {
-        _matchs.add(match);
-      }
+  saveTeam(Team team) {
+    if (!_teams.contains(team) && team.name != null && team.name != "") {
+      TeamService().createTeam(team);
+      notifyListeners();
+    }
+  }
+
+  saveMatch(Match match) {
+    if (!_matchs.contains(match)) {
+      _matchs.add(match);
     }
     notifyListeners();
   }

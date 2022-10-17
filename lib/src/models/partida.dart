@@ -3,7 +3,7 @@ import 'dart:convert';
 
 class Match {
   final String? id;
-  final String? matchId;
+  final String? teamId;
   final String? place;
   final String? date;
   final String? time;
@@ -12,7 +12,7 @@ class Match {
 
   Match({
     this.id,
-    this.matchId,
+    this.teamId,
     this.place,
     this.date,
     this.time,
@@ -23,7 +23,7 @@ class Match {
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'id': id,
-      'matchId': matchId,
+      'teamId': teamId,
       'place': place,
       'date': date,
       'time': time,
@@ -35,7 +35,7 @@ class Match {
   factory Match.fromMap(Map<String, dynamic> map) {
     return Match(
       id: map['id'] != null ? map['id'] as String : null,
-      matchId: map['matchId'] != null ? map['matchId'] as String : null,
+      teamId: map['teamId'] != null ? map['teamId'] as String : null,
       place: map['place'] != null ? map['place'] as String : null,
       date: map['date'] != null ? map['date'] as String : null,
       time: map['time'] != null ? map['time'] as String : null,

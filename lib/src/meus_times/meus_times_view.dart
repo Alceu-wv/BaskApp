@@ -34,22 +34,23 @@ class _MeusTimesViewState extends State<MeusTimesView> {
         child: ListView.builder(
           itemCount: teams.count,
           itemBuilder: (BuildContext context, int index) {
-            var team = teams.items[index];
-            return background_layer_card(team);
+            var team = teams.teams[index];
+            var matchs = teams.matchs[index];
+            return background_layer_card(team, matchs);
           },
         ),
       ),
     );
   }
 
-  Widget text_data() {
+  Widget text_data(item, value) {
     return Text(
-      "data : some content",
+      "$item : $value",
       style: TextStyle(fontSize: 20),
     );
   }
 
-  Widget content_info_card() {
+  Widget content_info_card(matchs) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
@@ -57,9 +58,9 @@ class _MeusTimesViewState extends State<MeusTimesView> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              text_data(),
-              text_data(),
-              text_data(),
+              text_data("local", matchs.elementAt(0).place),
+              text_data("Horário", matchs.elementAt(0).time),
+              text_data("Confirmados", matchs.elementAt(0).maxPlayers),
             ],
           ),
         ),
@@ -68,33 +69,35 @@ class _MeusTimesViewState extends State<MeusTimesView> {
     );
   }
 
-  Widget content_layer_card() {
-    return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            alignment: Alignment.center,
-            color: Color.fromARGB(142, 2, 67, 99),
-            width: 270,
-            height: 38,
-            child: const Text(
-              "Próximo Jogo",
-              style: TextStyle(fontSize: 18, color: Colors.white),
-            ),
-          ),
-          Container(
-            color: Color.fromARGB(144, 124, 124, 138),
-            width: 270,
-            height: 130,
-            child: content_info_card(),
-          ),
-        ],
-      ),
-    );
+  Widget content_layer_card(matchs) {
+    return ListView.builder(
+        itemCount: matchs.isEmpty ? 0 : 1,
+        itemBuilder: (BuildContext context, int index) {
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                alignment: Alignment.center,
+                color: Color.fromARGB(142, 2, 67, 99),
+                width: 270,
+                height: 38,
+                child: Text(
+                  matchs.elementAt(0).date,
+                  style: TextStyle(fontSize: 18, color: Colors.white),
+                ),
+              ),
+              Container(
+                color: Color.fromARGB(144, 124, 124, 138),
+                width: 270,
+                height: 130,
+                child: content_info_card(matchs),
+              ),
+            ],
+          );
+        });
   }
 
-  Widget background_layer_card(team) {
+  Widget background_layer_card(team, matchs) {
     return Padding(
       padding: const EdgeInsets.only(top: 15.0),
       child: Card(
@@ -118,7 +121,7 @@ class _MeusTimesViewState extends State<MeusTimesView> {
               color: Color(0xffF9AD69),
               width: 311,
               height: 200,
-              child: content_layer_card(),
+              child: content_layer_card(matchs),
             ),
           ],
         ),

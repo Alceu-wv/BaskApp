@@ -15,6 +15,8 @@ class AddPartidaView extends StatefulWidget {
 class _AddPartidaViewState extends State<AddPartidaView> {
   final controller = AddPartidaController();
 
+  void saveMatch() {}
+
   @override
   void initState() {
     controller.date$.addListener(() {
@@ -106,7 +108,7 @@ class _AddPartidaViewState extends State<AddPartidaView> {
               const SizedBox(
                 height: 50,
               ),
-              BaskBigOkButton(),
+              BaskBigOkButton(saveMatch),
             ],
           ),
         ),

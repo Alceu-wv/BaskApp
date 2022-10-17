@@ -1,10 +1,13 @@
 import 'package:bask_app/src/add_time/add_time_controller.dart';
 import 'package:bask_app/src/components/my_big_ok_button.dart';
 import 'package:bask_app/src/components/my_form_field.dart';
+import 'package:bask_app/src/models/time.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../components/my_app_bar.dart';
 import '../components/my_botton_bar.dart';
+import '../repositories/team_repository.dart';
 
 class AddTimeView extends StatefulWidget {
   static const routeName = '/add_time';
@@ -14,9 +17,11 @@ class AddTimeView extends StatefulWidget {
 }
 
 class _AddTimeViewState extends State<AddTimeView> {
-  final String controllerField = "Teste";
   final controller = TimeController();
   get name => controller.name;
+  get badge => controller.badge;
+
+  late TeamRepository teams = Provider.of<TeamRepository>(context);
 
   @override
   void initState() {
@@ -26,8 +31,15 @@ class _AddTimeViewState extends State<AddTimeView> {
     });
   }
 
+  void saveTeam() {
+    var team = Team(name: name, badge: badge);
+    teams.saveTeam(team);
+  }
+
   @override
   Widget build(BuildContext context) {
+    teams = Provider.of<TeamRepository>(context);
+
     return Scaffold(
       appBar: BaskAppBar("Adicionar Partida"),
       body: Padding(
@@ -57,7 +69,7 @@ class _AddTimeViewState extends State<AddTimeView> {
               height: 50,
               child: Text("Criar $name"),
             ),
-            BaskBigOkButton()
+            BaskBigOkButton(saveTeam)
           ],
         ),
       ),
