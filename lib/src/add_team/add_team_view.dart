@@ -1,4 +1,4 @@
-import 'package:bask_app/src/add_time/add_time_controller.dart';
+import 'package:bask_app/src/add_team/add_team_controller.dart';
 import 'package:bask_app/src/components/my_big_ok_button.dart';
 import 'package:bask_app/src/components/my_form_field.dart';
 import 'package:bask_app/src/models/time.dart';
@@ -9,15 +9,15 @@ import '../components/my_app_bar.dart';
 import '../components/my_botton_bar.dart';
 import '../repositories/team_repository.dart';
 
-class AddTimeView extends StatefulWidget {
+class AddTeamView extends StatefulWidget {
   static const routeName = '/add_time';
 
   @override
-  State<AddTimeView> createState() => _AddTimeViewState();
+  State<AddTeamView> createState() => _AddTeamViewState();
 }
 
-class _AddTimeViewState extends State<AddTimeView> {
-  final controller = TimeController();
+class _AddTeamViewState extends State<AddTeamView> {
+  final controller = TeamController();
   get name => controller.name;
   get badge => controller.badge;
 

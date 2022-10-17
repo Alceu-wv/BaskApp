@@ -1,6 +1,6 @@
-import 'package:bask_app/src/add_time/add_time_view.dart';
+import 'package:bask_app/src/add_team/add_team_view.dart';
 import 'package:bask_app/src/components/my_botton_bar.dart';
-import 'package:bask_app/src/meus_times/meus_times_view.dart';
+import 'package:bask_app/src/my_teams/my_teams_view.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -34,8 +34,8 @@ class _HomePageState extends State<HomePage> {
         controller: pageController,
         onPageChanged: setCurrentPage,
         children: [
-          MeusTimesView(),
-          AddTimeView(),
+          MyTeamsView(),
+          AddTeamView(),
         ],
       ),
     );

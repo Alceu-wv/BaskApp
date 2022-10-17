@@ -1,8 +1,8 @@
-import 'package:bask_app/src/add_partida/add_partida_view.dart';
-import 'package:bask_app/src/add_time/add_time_view.dart';
+import 'package:bask_app/src/add_match/add_match_view.dart';
+import 'package:bask_app/src/add_team/add_team_view.dart';
 import 'package:bask_app/src/home/home_page.dart';
 import 'package:bask_app/src/login/login_view.dart';
-import 'package:bask_app/src/meus_times/meus_times_view.dart';
+import 'package:bask_app/src/my_teams/my_teams_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -72,10 +72,10 @@ class MyApp extends StatelessWidget {
               settings: routeSettings,
               builder: (BuildContext context) {
                 switch (routeSettings.name) {
-                  case MeusTimesView.routeName:
+                  case MyTeamsView.routeName:
                     return HomePage();
-                  case AddTimeView.routeName:
-                    return AddTimeView();
+                  case AddTeamView.routeName:
+                    return AddTeamView();
                   case AddPartidaView.routeName:
                     return AddPartidaView();
                   default:

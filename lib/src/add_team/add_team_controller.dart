@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class TimeController extends ChangeNotifier {
+class TeamController extends ChangeNotifier {
   var name = "";
   var badge = "";
 

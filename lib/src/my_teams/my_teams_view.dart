@@ -1,18 +1,18 @@
-import 'package:bask_app/src/add_partida/add_partida_view.dart';
+import 'package:bask_app/src/add_match/add_match_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../components/my_app_bar.dart';
 import '../repositories/team_repository.dart';
 
-class MeusTimesView extends StatefulWidget {
+class MyTeamsView extends StatefulWidget {
   static const routeName = '/meus_times';
 
   @override
-  State<MeusTimesView> createState() => _MeusTimesViewState();
+  State<MyTeamsView> createState() => _MyTeamsViewState();
 }
 
-class _MeusTimesViewState extends State<MeusTimesView> {
+class _MyTeamsViewState extends State<MyTeamsView> {
   final String controllerField = "Teste";
 
   late TeamRepository teams = Provider.of<TeamRepository>(context);

@@ -1,4 +1,4 @@
-import 'package:bask_app/src/add_partida/add_partida_controller.dart';
+import 'package:bask_app/src/add_match/add_match_controller.dart';
 import 'package:bask_app/src/components/my_app_bar.dart';
 import 'package:bask_app/src/components/my_big_ok_button.dart';
 import 'package:bask_app/src/components/my_botton_bar.dart';
