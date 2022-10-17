@@ -14,7 +14,7 @@ class _BaskBigOkButtonState extends State<BaskBigOkButton> {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () => widget.func(),
+      onPressed: () => {widget.func(), Navigator.of(context).pop()},
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color(0xffF9AD69),
         minimumSize: const Size.fromHeight(60),

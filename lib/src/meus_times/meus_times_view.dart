@@ -1,3 +1,4 @@
+import 'package:bask_app/src/add_partida/add_partida_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -24,12 +25,17 @@ class _MeusTimesViewState extends State<MeusTimesView> {
     }
   }
 
+  void routeAddMatch() {
+    print("Chamando rota AddPartidaView.routeName");
+    Navigator.of(context).pushNamed(AddPartidaView.routeName);
+  }
+
   @override
   Widget build(BuildContext context) {
     teams = Provider.of<TeamRepository>(context);
 
     return Scaffold(
-      appBar: BaskAppBar("Meus times"),
+      appBar: BaskAppBar("Meus times", routeAddMatch),
       body: Center(
         child: ListView.builder(
           itemCount: teams.count,

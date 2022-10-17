@@ -94,7 +94,6 @@ class _AddPartidaViewState extends State<AddPartidaView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: BaskAppBar("Adicionar Partida"),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(right: 45.0, left: 45.0, top: 45.0),

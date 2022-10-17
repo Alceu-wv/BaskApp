@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class BaskAppBar extends StatelessWidget implements PreferredSizeWidget {
   String title;
+  Function route;
 
-  BaskAppBar(this.title);
+  BaskAppBar(this.title, this.route);
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +25,12 @@ class BaskAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
         ],
       ),
+      actions: <Widget>[
+        IconButton(
+          icon: Icon(Icons.add),
+          onPressed: () => route(),
+        )
+      ],
     );
   }
 

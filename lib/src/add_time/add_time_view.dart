@@ -41,7 +41,6 @@ class _AddTimeViewState extends State<AddTimeView> {
     teams = Provider.of<TeamRepository>(context);
 
     return Scaffold(
-      appBar: BaskAppBar("Adicionar Partida"),
       body: Padding(
         padding: const EdgeInsets.only(right: 45.0, left: 45.0, top: 45.0),
         child: Column(
